@@ -1,5 +1,5 @@
-🐍 Python Project - Calculator (Tkinter Example)
-🔄 Unit Converter GUI (Python + Tkinter)
+🐍 Python Project - Convertor Calculator (Python + Tkinter )
+
 📌 Overview
 
 This is a Python GUI-based Unit Converter built using Tkinter.
