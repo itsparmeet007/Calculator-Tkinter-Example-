@@ -1,0 +1,156 @@
+from tkinter import *
+
+def miles_to_kilometers_window():
+    window = Toplevel()
+    window.title("Miles to Kilometers")
+    window.minsize(400, 200)
+
+    def miles_to_kilometers():
+        print("🛣️ Miles to Kilometers Converted 🛣️")
+        try:
+            miles = float(miles_input.get())
+            km = miles * 1.609344
+            km_result_label.config(text=f"{km}")
+        except ValueError:
+            km_result_label.config(text = "Invalid Input")
+
+    miles_input = Entry(window, width=20)
+    miles_input.grid(column=1, row=0)
+
+    miles_label = Label(window, text='Miles')
+    miles_label.grid(column=2, row=0)
+
+    equals_label = Label(window, text="is equal to")
+    equals_label.grid(column=0, row=1)
+
+    km_result_label = Label(window, text='0')
+    km_result_label.grid(column=1, row=1)
+
+    km_label = Label(window, text='Kilometers')
+    km_label.grid(column=2, row=1)
+
+    calculate_button = Button(window, text="Calculate", command=miles_to_kilometers)
+    calculate_button.grid(column=1, row=2)
+
+    back_button = Button(window, text="Back", command=window.destroy)
+    back_button.grid(column=1, row=5)
+
+def pounds_to_kg_window():
+    window = Toplevel()
+    window.title("Pounds to Kilogram")
+    window.minsize(400, 200)
+
+    def pounds_to_kilogram():
+        print("⚖️Pounds to Kilogram Converted ⚖️")
+        try:
+            pounds = float(pounds_input.get())
+            kg = pounds * 0.453592
+            kg_result_label.config(text=f"{kg}")
+        except ValueError:
+            km_result_label.config(text = "Invalid Input")
+
+    pounds_input = Entry(window,width = 20)
+    pounds_input.grid(column = 1, row =2)
+
+    pounds_label = Label(window, text = 'Pounds')
+    pounds_label.grid(column = 2, row = 2)
+
+    equals_label = Label(window, text="is equal to")
+    equals_label.grid(column = 0, row=1)
+
+    kg_result_label = Label(window, text='0')
+    kg_result_label.grid(column = 1, row=1)
+
+    kg_label = Label(window, text='Kilograms')
+    kg_label.grid(column = 2, row=1)
+
+    calculate_button = Button(window, text="Calculate", command=pounds_to_kilogram)
+    calculate_button.grid(column = 1, row=3)
+
+    back_button = Button(window, text="Back", command=window.destroy)
+    back_button.grid(column=1, row=5)
+
+
+def centimeters_window():
+    window = Toplevel()
+    window.title("Centimeters to Meters")
+    window.minsize(400, 200)
+
+    def centimeters_to_meters():
+        print("📏Centimeters -> Meters Converted 📐")
+        try:
+            cm = float(cm_input.get())
+            m = cm / 100
+            m_result_label.config(text=f"{m}")
+        except ValueError:
+            m_result_label.config(text = "Invalid Input")
+
+    cm_input = Entry(window, width=20)
+    cm_input.grid(column=1, row=0)
+
+    cm_label = Label(window, text='Centimeters')
+    cm_label.grid(column=2, row=0)
+
+    equals_label = Label(window, text="is equal to")
+    equals_label.grid(column=0, row=1)
+
+    m_result_label = Label(window, text='0')
+    m_result_label.grid(column=1, row=1)
+
+    m_label = Label(window, text='Meters')
+    m_label.grid(column=2, row=1)
+
+    calculate_button = Button(window, text="Calculate", command= centimeters_to_meters)
+    calculate_button.grid(column=1, row=2)
+
+    back_button = Button(window, text = "Back", command = window.destroy)
+    back_button.grid(column = 1 , row = 5)
+
+
+def temperature_window():
+    window = Toplevel()
+    window.title("Celcius to Fahrenheit")
+    window.minsize(400, 200)
+
+    def celcius_to_fahrenheit():
+        print("🌡 Celsius → Fahrenheit Converter 🌡")
+        try:
+            celcius = float(celcius_input.get())
+            fahrenheit = (celcius * 1.8) + 32
+            fahrenheit_result_label.config(text =f"{fahrenheit}")
+        except ValueError:
+            fahrenheit_result_label.config(text = "Invalid Input")
+
+    celcius_input = Entry(window,width = 20)
+    celcius_input.grid(column = 1,row = 2)
+
+    celcius_label = Label(window, text = 'Celcius')
+    celcius_label.grid(column =2 , row = 2)
+
+    is_equal_label = Label(window, text = "is equal to")
+    is_equal_label.grid(column = 0, row=1)
+
+    fahrenheit_result_label = Label(window, text = '0')
+    fahrenheit_result_label.grid(column = 1, row=1)
+
+    fahrenheit_label = Label(window,text = "Fahrenheit")
+    fahrenheit_label.grid(column = 2, row=1)
+
+    calculate_button = Button(window, text="Calculate", command=celcius_to_fahrenheit)
+    calculate_button.grid(column = 1, row = 3)
+
+    back_button = Button(window, text = "Back", command = window.destroy)
+    back_button.grid(column = 1, row = 5)
+
+root = Tk()
+root.title("Unit Converter 😉🕹️")
+root.minsize(400, 200)
+
+Label(root, text="Choose a Converter🕹️😉", font=("Arial", 16, "bold")).pack(pady=10)
+
+Button(root, text="Miles ➝ Kilometers🛣️", command= miles_to_kilometers_window, width=25).pack(pady=5)
+Button(root, text="Pounds ➝ Kilograms⚖️", command=pounds_to_kg_window, width=25).pack(pady=5)
+Button(root , text = "Celsius ➝ Fahrenheit🌡️",command = temperature_window, width=25 ).pack(pady=5)
+Button(root, text="Centimeters ➝ Meters📐", command = centimeters_window, width=25).pack(pady=5)
+
+root.mainloop()
